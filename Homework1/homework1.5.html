@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function mergeTables(table1, table2, columnKey) {
+            // Khởi tạo bảng kết quả với tiêu đề từ cả hai bảng
+            const mergedTable = [table1[0].concat(table2[0].slice(1))];
+
+            // Tạo một đối tượng để lưu trữ các hàng của table2 dựa trên giá trị columnKey
+            const table2Map = {};
+            for (let i = 1; i < table2.length; i++) {
+                const key = table2[i][0]; // Lấy giá trị của cột columnKey (ở đây là ID)
+                const values = table2[i].slice(1); // Lấy các giá trị từ cột thứ hai trở đi
+                table2Map[key] = values; // Lưu trữ các giá trị vào table2Map dựa trên key là giá trị của columnKey
+            }
+
+            // Gộp các hàng từ table1 và table2 dựa trên giá trị columnKey
+            for (let i = 1; i < table1.length; i++) {
+                const key = table1[i][0]; // Lấy giá trị của cột columnKey trong hàng hiện tại của table1
+                const row1 = table1[i].slice(1); // Lấy các giá trị từ hàng hiện tại của table1, bỏ qua cột đầu tiên
+                const row2 = table2Map[key] || new Array(table2[0].length - 1).fill(null); // Lấy các giá trị từ table2Map dựa trên key, nếu không tìm thấy thì sử dụng mảng chứa các giá trị null
+                mergedTable.push([key].concat(row1, row2)); // Nối các giá trị từ table1 và table2 lại với nhau, sau đó đưa vào mergedTable
+            }
+
+            return mergedTable; // Trả về bảng kết quả sau khi gộp
+        }
+
+        // Ví dụ sử dụng
+        const table1 = [
+            ["ID", "Tên", "Tuổi"],
+            [1, "Alice", 30],
+            [2, "Bob", 25],
+            [3, "Charlie", 22]
+        ];
+
+        const table2 = [
+            ["ID", "Email", "Thành phố"],
+            [1, "alice@example.com", "Hà Nội"],
+            [2, "bob@example.com", "TP.HCM"],
+            [4, "charlie@example.com", "Đà Nẵng"]
+        ];
+
+        const mergedTable = mergeTables(table1, table2, 0);
+        console.log(mergedTable);
+
+    </script>
+</body>
+
+</html>

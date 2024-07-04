@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // Khởi tạo mảng
+var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Tìm số lớn nhất trong mảng
+var max = myArray[0]; // Giả sử phần tử đầu tiên là số lớn nhất
+for (var i = 1; i < myArray.length; i++) {
+    if (myArray[i] > max) { // Nếu phần tử tại vị trí i lớn hơn max hiện tại
+        max = myArray[i]; // Cập nhật max
+    }
+}
+console.log("Số lớn nhất trong mảng là: " + max);
+
+// Tìm số nhỏ nhất trong mảng
+var min = myArray[0]; // Giả sử phần tử đầu tiên là số nhỏ nhất
+for (var i = 1; i < myArray.length; i++) {
+    if (myArray[i] < min) { // Nếu phần tử tại vị trí i nhỏ hơn min hiện tại
+        min = myArray[i]; // Cập nhật min
+    }
+}
+console.log("Số nhỏ nhất trong mảng là: " + min);
+
+    </script>
+</body>
+
+</html>

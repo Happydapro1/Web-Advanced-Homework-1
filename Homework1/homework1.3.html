@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Khởi tạo mảng các số nguyên từ 1 đến 10
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Hiển thị mảng ban đầu trước khi thực hiện bất kỳ thao tác nào
+console.log("Mảng ban đầu:", numbers);
+
+// Xóa phần tử đầu tiên của mảng
+numbers.shift();
+console.log("Mảng sau khi xóa phần tử đầu tiên:", numbers);
+
+// Xóa phần tử cuối cùng của mảng
+numbers.pop();
+console.log("Mảng sau khi xóa phần tử cuối cùng:", numbers);
+
+// Tìm chỉ số của phần tử có giá trị là 5 trong mảng
+var index = numbers.indexOf(5);
+// Kiểm tra nếu tìm thấy phần tử có giá trị là 5
+if (index !== -1) {
+    // Sử dụng phương thức splice để xóa phần tử tại chỉ số index
+    numbers.splice(index, 1);
+}
+console.log("Mảng sau khi xóa phần tử có giá trị bằng 5:", numbers);
+
+
+    </script>
+</body>
+
+</html>

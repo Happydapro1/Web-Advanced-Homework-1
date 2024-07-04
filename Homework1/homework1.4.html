@@ -8,16 +8,22 @@
 <body>
     <script>
        
+// Khởi tạo mảng ban đầu
 var arr = [1, 2, 3, 4, 5];
 
+// Giá trị cần chèn và chỉ số vị trí cần chèn vào mảng
 var x = 7; 
 var index = 2; 
 
+// Hiển thị mảng ban đầu trước khi thực hiện thêm
 console.log("Mảng ban đầu:", arr);
 
+// Sử dụng phương thức splice để chèn giá trị x vào vị trí index trong mảng arr
 arr.splice(index, 0, x);
 
+// Hiển thị mảng sau khi đã chèn giá trị x vào
 console.log("Mảng sau khi chèn:", arr);
+
 
     </script>
 </body>
