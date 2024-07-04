@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function mergeTables(table1, table2, columnKey) {
+            const keyIndex1 = table1[0].indexOf(columnKey);
+            const keyIndex2 = table2[0].indexOf(columnKey);
+
+            const mergedTable = [table1[0].concat(table2[0].slice(1))];
+
+            const table2Rows = {};
+            for (let i = 1; i < table2.length; i++) {
+                table2Rows[table2[i][keyIndex2]] = table2[i];
+            }
+
+            for (let i = 1; i < table1.length; i++) {
+                const row1 = table1[i];
+                const key = row1[keyIndex1];
+                const row2 = table2Rows[key] || new Array(table2[0].length).fill(null);
+                mergedTable.push(row1.concat(row2.slice(1)));
+            }
+
+            return mergedTable;
+        }
+
+        const table1 = [
+            ["ID", "Tên", "Tuổi"],
+            [1, "Alice", 30],
+            [2, "Bob", 25],
+            [3, "Charlie", 22]
+        ];
+
+        const table2 = [
+            ["ID", "Email", "Thành phố"],
+            [1, "alice@example.com", "Hà Nội"],
+            [2, "bob@example.com", "TP.HCM"],
+            [4, "charlie@example.com", "Đà Nẵng"]
+        ];
+
+        const mergedTable = mergeTables(table1, table2, "ID");
+        console.log(mergedTable);
+
+    </script>
+</body>
+
+</html>
